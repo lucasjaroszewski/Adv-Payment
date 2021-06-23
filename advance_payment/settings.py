@@ -13,19 +13,20 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
+
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-1t!_ndm$05$nikg$-nlcyd2e#zw9e&!zzv4g6@66z(3h$$jeab'
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['adv-payment.herokuapp.com']
 
 
 # Application definition
@@ -47,8 +48,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'rest_framework',
-    'users',
 ]
 
 ROOT_URLCONF = 'advance_payment.urls'
@@ -70,7 +69,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'advance_payment.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
