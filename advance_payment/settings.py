@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-1t!_ndm$05$nikg$-nlcyd2e#zw9e&!zzv4g6@66z(3h$$jeab
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ['adv-payment.herokuapp.com']
+ALLOWED_HOSTS = ['adv-payment-jwt.herokuapp.com']
 
 
 # Application definition
@@ -83,6 +83,13 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+
+
+# PostgreSQL Heroku's Configuration
+import dj_database_url
+
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
