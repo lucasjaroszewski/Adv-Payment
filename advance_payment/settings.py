@@ -29,6 +29,18 @@ DEBUG = True
 ALLOWED_HOSTS = ['adv-payment-jwt.herokuapp.com']
 
 
+# SMTP Configuration
+#EMAIL_HOST = 'smtp.gmail.com'
+#EMAIL_HOST_USER = 'adv-payment-jwt@gmail.com'
+#EMAIL_HOST_PASSWORD = 'advancepaymentjwt2021'
+#EMAIL_PORT = 587
+#EMAIL_USE_TLS = True
+#DEFAULT_FROM_EMAIL = "Lucas <adv-payment-jwt@gmail.com"
+
+#ADMINS = [('Lucas', EMAIL_HOST_USER)]
+#MANAGERS = ADMINS
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,6 +50,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'core',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +70,7 @@ ROOT_URLCONF = 'advance_payment.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
