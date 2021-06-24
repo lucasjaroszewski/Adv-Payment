@@ -16,7 +16,6 @@ class RegisterView(APIView):
         serializer.save()
         return Response(serializer.data)
 
-
 class LoginView(APIView):
     def post(self, request):
         email = request.data['email']
@@ -41,7 +40,7 @@ class LoginView(APIView):
         }
 
         # Creates the token with payload and secret
-        token = jwt.encode(payload, 'secret', algorithm='HS256')
+        token = jwt.encode(payload, 'secret', algorithm='HS256').decode('utf-8')
 
         # Return token via cookies
         response = Response()
@@ -71,3 +70,15 @@ class UserView(APIView):
         serializer = UserSerializer(user)
 
         return Response(serializer.data)
+
+class LogoutView(APIView):
+    def post(self, request):
+
+        # Deletes the cookies after logout
+        response = Response()
+        response.delete_cookie('jwt')
+        response.data = {
+            'message': 'success'
+        }
+
+        return response
