@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-1t!_ndm$05$nikg$-nlcyd2e#zw9e&!zzv4g6@66z(3h$$jeab
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ['adv-payment-jwt.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['adv-payment-jwt.herokuapp.com', '127.0.0.1', 'localhost']
 
 
 # SMTP Configuration
@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'core',
     'users',
 ]
