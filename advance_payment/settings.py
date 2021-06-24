@@ -161,3 +161,6 @@ CORS_ALLOW_CREDENTIALS = True       # Allow front-end to get the cookies sent
 
 # Crispy Forms settings
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# Login Redirect
+LOGIN_REDIRECT_URL = '/dashboard'

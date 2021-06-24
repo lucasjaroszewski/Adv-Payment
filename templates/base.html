@@ -29,18 +29,25 @@
                                 </li>
 
                                 {% if request.user.is_authenticated %}
-                                <li>
-                                    <a href="#" class="nav-link text-secondary">
-                                        Dashboard
-                                    </a>
-                                </li>
+                                    <li>
+                                        <a href="#" class="nav-link text-secondary">
+                                            Dashboard
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'logout' %}" class="nav-link text-secondary">
+                                            <p style="color: red">Sign Out</p>
+                                        </a>
+                                    </li>
+                                {% else %}
+                                    <li>
+                                        <a href="{% url 'register' %}" class="nav-link text-secondary">
+                                            Customers
+                                        </a>
+                                    </li>
                                 {% endif %}
 
-                                <li>
-                                    <a href="{% url 'register' %}" class="nav-link text-secondary">
-                                        Customers
-                                    </a>
-                                </li>
+
                             </ul>
                         </div>
                     </div>

@@ -6,6 +6,7 @@ from .serializers import UserSerializer
 from .models import User
 import jwt, datetime
 
+
 class RegisterView(APIView):
     def post(self, request):
 
@@ -15,7 +16,7 @@ class RegisterView(APIView):
         # Validates the serializer
         serializer.is_valid(raise_exception=True)
         serializer.save()
-        return render(request, 'register.html')
+        return Response(serializer.data)
 
 class LoginView(APIView):
     def post(self, request):
