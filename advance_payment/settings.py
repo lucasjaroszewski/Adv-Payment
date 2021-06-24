@@ -93,12 +93,8 @@ WSGI_APPLICATION = 'advance_payment.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'autpmqrd',
-        'USER': 'autpmqrd',
-        'PASSWORD': 'mw4k3N1paLpIQ9hc5tOyJm-FAnBGwJea',
-        'HOST': 'batyr.db.elephantsql.com',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
