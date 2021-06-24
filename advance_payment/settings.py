@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
+    'crispy_forms',
     'core',
     'users',
 ]
@@ -157,3 +158,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'users.User'
 CORS_ORIGIN_ALLOW_ALL = True        # Allows all front-end ports access
 CORS_ALLOW_CREDENTIALS = True       # Allow front-end to get the cookies sent
+
+# Crispy Forms settings
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

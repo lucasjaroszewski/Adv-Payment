@@ -1,3 +1,12 @@
 body {
-    color: #000;
+    color: #222;
+}
+
+.center-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 85vh;
 }
