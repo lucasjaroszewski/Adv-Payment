@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-1t!_ndm$05$nikg$-nlcyd2e#zw9e&!zzv4g6@66z(3h$$jeab
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ['adv-payment-jwt.herokuapp.com']
+ALLOWED_HOSTS = ['adv-payment-jwt.herokuapp.com', '127.0.0.1']
 
 
 # SMTP Configuration
@@ -44,7 +44,7 @@ ALLOWED_HOSTS = ['adv-payment-jwt.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    #'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -153,3 +153,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "live-static-files", "media-root")
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'users.User'
