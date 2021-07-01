@@ -15,7 +15,11 @@
                             <a class="ml-2" href="{% url 'register' %}">Create an account.</a>
                         </small>
                     </div>
-                    {{ form|crispy }}
+                    <!--{{ form|crispy }}-->
+
+                    <input type="text" name="username" class="input mb-3 textinput textInput form-control"  placeholder="E-mail" name="password" required="" id="id_username">
+                    <input type="password" name="password" class="input mb-3 textinput textInput form-control"  placeholder="Senha" name="password" id="id_password">
+
                 </fieldset>
                 <div class="form-group mt-4" style="text-align: center">
                     <button class="btn btn-outline-secondary" type="submit">Login</button>

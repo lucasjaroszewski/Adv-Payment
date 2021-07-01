@@ -21,3 +21,4 @@ class UserRegisterForm(UserCreationForm):
         self.fields['password1'].widget.attrs['class'] = 'input mb-3'
         self.fields['password2'].label = False
         self.fields['password2'].widget.attrs['class'] = 'input mb-3'
+        
