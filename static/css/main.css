@@ -10,3 +10,11 @@ body {
     text-align: center;
     min-height: 85vh;
 }
+
+.center-dashscreen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
