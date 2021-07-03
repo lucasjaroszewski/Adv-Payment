@@ -35,7 +35,7 @@ ALLOWED_HOSTS = ['adv-payment-jwt.herokuapp.com', '127.0.0.1', 'localhost']
 #EMAIL_HOST_PASSWORD = 'advancepaymentjwt2021'
 #EMAIL_PORT = 587
 #EMAIL_USE_TLS = True
-#DEFAULT_FROM_EMAIL = "Lucas <adv-payment-jwt@gmail.com"
+#DEFAULT_FROM_EMAIL = "Lucas <adv-payment-jwt@gmail.com>"
 
 #ADMINS = [('Lucas', EMAIL_HOST_USER)]
 #MANAGERS = ADMINS
@@ -53,8 +53,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'crispy_forms',
-    'core',
-    'users',
+    'apps.core',
+    'apps.users',
 ]
 
 MIDDLEWARE = [
@@ -164,3 +164,4 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Login Redirect
 LOGIN_REDIRECT_URL = '/dashboard'
+LOGIN_URL = '/login'
