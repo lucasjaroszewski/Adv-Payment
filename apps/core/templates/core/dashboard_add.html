@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}- Add payment{% endblock title %}
+
+{% block content %}
+    <main class="center-dashboard">
+        <div class="container my-4">
+        <h2 class="fw-light mb-3">Dashboard > Add Payment</h2>
+        <div class="row">
+            <div class="col-6">
+                <p class="btn btn-md" style="cursor: default; padding-left: 0">
+                    <span style="color: grey; font-weight: 600">Account:</span>
+                    {{ request.user }}
+                </p>
+            </div>
+            <div class="col-6">
+                <a href="{% url 'dashboard' %}" class="btn btn-secondary float-right px-4">
+                    Voltar
+                </a>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <p><span style="font-weight: 600; color: grey">CNPJ:</span> 12.345.6789/0001-10</p>
+                        <p><span style="font-weight: 600; color: grey">Payment:</span> $ 1000.00</p>
+                        <p><span style="font-weight: 600; color: grey">Expiration Date:</span> June 21, 2021</p>
+                        <button id="payment1_add" class="btn btn-success">Add Payment</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <p><span style="font-weight: 600; color: grey">CNPJ:</span> 12.345.6789/0001-12</p>
+                        <p><span style="font-weight: 600; color: grey">Payment:</span> $ 690.90</p>
+                        <p><span style="font-weight: 600; color: grey">Expiration Date:</span> June 21, 2020</p>
+                        <button id="payment2_add" class="btn btn-success">Add Payment</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <p><span style="font-weight: 600; color: grey">CNPJ:</span> 12.345.6789/0001-14</p>
+                        <p><span style="font-weight: 600; color: grey">Payment:</span> $ 2578.81</p>
+                        <p><span style="font-weight: 600; color: grey">Expiration Date:</span> June 21, 2022</p>
+                        <button id="payment3_add" class="btn btn-success">Add Payment</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript" src="{% static 'js/add_payment.js' %}"></script>
+{% endblock %}

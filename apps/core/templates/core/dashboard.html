@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}- Dashboard{% endblock title %}
+
+{% block content %}
+    {% if not payments %}
+        <main class="center-screen">
+            <button class="btn btn-md" disabled>No payments found.</button>
+            <a href="{% url 'dashboard-add' %}" class="btn btn-md" style="color: grey">
+                <strong>Add payments to your account.</strong>
+            </a>
+    {% else %}
+        <main class="center-dashboard">
+            <div class="container my-4">
+            <h2 class="fw-light mb-3">Dashboard</h2>
+            <div class="row">
+                <div class="col-6">
+                    <p class="btn btn-md" style="cursor: default; padding-left: 0">
+                        <span style="color: grey; font-weight: 600">Account:</span>
+                        {{ request.user }}
+                    </p>
+                </div>
+                <div class="col-6">
+                    <a href="{% url 'dashboard-add' %}" class="btn btn-success float-right ml-4">
+                        Add Payments
+                    </a>
+                    <form class="float-right mx-2" action="{% url 'dashboard' %}" method="get" style="display: block">
+                        <div class="control">
+                            <div class="select" style="display: inline">
+                                <select class="sorting btn btn-md" name="sorting">
+                                    <option value=""{% if sorting == '' %} selected{% endif %}>History</option>
+                                    <option value="Available"{% if sorting == 'Available' %} selected{% endif %}>Available Payments</option>
+                                    <option value="Expired"{% if sorting == 'Expired' %} selected{% endif %}>Expired Payments</option>
+                                    <option value="Pending"{% if sorting == 'Pending' %} selected{% endif %}>Pending Payments</option>
+                                    <option value="Accepted"{% if sorting == 'Accepted' %} selected{% endif %}>Accepted Payments</option>
+                                    <option value="Denied"{% if sorting == 'Denied' %} selected{% endif %}>Denied Payments</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-secondary btn-md px-4" name="button">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <table id="paymentTable" class="table table-hover" style="margin-top: 2em">
+                <tbody>
+                    <tr>
+                        <th scope="col">Status</th>
+                        <th scope="col">Information</th>
+                        <th scope="col">Dates</th>
+                        <th scope="col">Prices</th>
+                        <th class="payment-available text-center" scope="col">Advance Payment!</th>
+                    </tr>
+                    {% for payment in payments %}
+                        <tr>
+                        {% if payment.payment_status == 'Expired' %}<td><span class="payment-expired">Expired</span></td>
+                        {% elif payment.payment_status == 'Available' %}<td><span class="payment-available">Available</span></td>
+                        {% elif payment.payment_status == 'Pending' %}<td><span class="payment-pending">Pending</span></td>
+                        {% elif payment.payment_status == 'Accepted' %}<td><span class="payment-accepted">Accepted</span></td>
+                        {% elif payment.payment_status == 'Denied' %}<td><span class="payment-denied">Denied</span></td>
+                        {% endif %}
+                            <td>
+                                <p class="secondary">
+                                    <span class="secondary">CNPJ:</span>
+                                    {{ payment.cnpj }}
+                                </p>
+                                <p class="secondary2">
+                                    <span class="secondary">Company:</span>
+                                    {{ payment.company_name }}
+                                </p>
+                            </td>
+                            <td>
+                                <p class="secondary">
+                                    <span class="secondary">Added:</span>
+                                    {{ payment.date_added }}
+                                </p>
+                                <p class="secondary2">
+                                    <span class="secondary">Expires:</span>
+                                    {{ payment.expiration_date }}
+                                </p>
+                            </td>
+                            <td>
+                                <p class="secondary">
+                                    <span class="secondary">Old:</span>
+                                    ${{ payment.price|floatformat:2 }}
+                                </p>
+                                <p class="secondary2">
+                                    <span class="secondary">New:</span>
+                                    {% if payment.adv_payment == 'Expired' %}
+                                    <span class="payment-expired"> ${{ payment.price|floatformat:2 }}</span>
+                                    {% else %}
+                                    <span class="payment-available"> ${{ payment.adv_payment|floatformat:2 }}</span>
+                                    {% endif %}
+                                </p>
+                            </td>
+                        {% if payment.payment_status == 'Expired' %}
+                            <td class="text-center">
+                                <button type="button" class="solicitate btn btn-outline-error verticalButton btn-md px-3" name="button" disabled>
+                                    Not possible
+                                </button>
+                            </td>
+                        {% elif payment.payment_status == 'Available' %}
+                            <td class="text-center">
+                                <button id="{{ payment.id }}" type="button" class="solicitate verticalButton btn btn-outline-success btn-md px-3" name="button">
+                                    Request
+                                </button>
+                            </td>
+                        {% else %}<td></td>
+                        {% endif %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
+    </main>
+{% endblock content %}
+
+{% block javascript %}
+    <script type="text/javascript" src="{% static 'js/solicitate_payment.js' %}"></script>
+{% endblock %}

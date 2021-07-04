@@ -18,3 +18,75 @@ body {
     align-items: center;
     text-align: center;
 }
+
+/* --- Dashboard --- */
+
+th {
+    font-weight: 600;
+    color: grey;
+}
+th.payment-available {
+    font-weight: 600;
+    color: green;
+}
+
+td {
+    vertical-align: middle;
+}
+
+td.payment-available {
+    font-weight: 600;
+    color: green;
+}
+
+td.payment-expired {
+    font-weight: 600;
+    color: red;
+}
+
+span.payment-available {
+    font-weight: 600;
+    color: green;
+}
+
+span.payment-pending {
+    font-weight: 600;
+    color: orange;
+}
+
+span.payment-accepted {
+    font-weight: 600;
+    color: green;
+}
+
+span.payment-denied {
+    font-weight: 600;
+    color: red;
+}
+
+span.payment-expired {
+    font-weight: 600;
+    color: red;
+}
+
+span.secondary {
+    font-weight: 600;
+    color:grey;
+}
+
+p.secondary {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+p.secondary2 {
+    margin-bottom: 5px;
+}
+
+form.float-right {
+    float: right;
+}
+
+a.float-right {
+    float: right;
+}
