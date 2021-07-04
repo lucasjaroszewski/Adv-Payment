@@ -52,10 +52,11 @@ var Payment_3 = {
     "payment_status": "Available",
 }
 
-// Buttons logic
+// Button: Add Payment 1
 var button_payment_1 = document.getElementById('payment1_add')
 button_payment_1.addEventListener('click', function(e) {
 
+    // Fetches API and creates a new payment
     fetch('/api/payment-create/', {
         method: 'POST',
         headers: {
@@ -67,9 +68,11 @@ button_payment_1.addEventListener('click', function(e) {
     })
 })
 
+// Button: Add Payment 2
 var button_payment_2 = document.getElementById('payment2_add')
 button_payment_2.addEventListener('click', function(e) {
 
+    // Fetches API and creates a new payment
     fetch('/api/payment-create/', {
         method: 'POST',
         headers: {
@@ -81,9 +84,11 @@ button_payment_2.addEventListener('click', function(e) {
     })
 })
 
+// Button: Add Payment 3
 var button_payment_3 = document.getElementById('payment3_add')
 button_payment_3.addEventListener('click', function(e) {
 
+    // Fetches API and creates a new payment
     fetch('/api/payment-create/', {
         method: 'POST',
         headers: {

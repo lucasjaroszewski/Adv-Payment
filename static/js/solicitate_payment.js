@@ -21,12 +21,13 @@ const user_id = JSON.parse(document.getElementById('user_id').textContent);
 const user_email = JSON.parse(document.getElementById('user_email').textContent);
 
 
-// Button logic
+// Button: Request
 jQuery('#paymentTable').on('click', ".solicitate", function() {
     var $this = $(this);
     var payment_id = $this.attr('id');
     status_update = 'Pending'
 
+    // Fetch API and updates information of the selected payment
     fetch(`/api/payment-update/${payment_id}/`, {
         method: 'POST',
         headers: {

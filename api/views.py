@@ -40,7 +40,6 @@ def paymentUpdate(request, id):
     # Gets data from request
     dump = json.dumps(request.data)
     data = json.loads(dump)
-    print(data)
 
     # Identifies e-mail and payment status change
     payment_status = data['payment_status']

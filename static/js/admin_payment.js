@@ -21,12 +21,13 @@ const user_id = JSON.parse(document.getElementById('user_id').textContent);
 const user_email = JSON.parse(document.getElementById('user_email').textContent);
 
 
-// Buttons logic
+// Button: Accept
 jQuery('#adminTable').on('click', ".accept", function() {
     var $this = $(this);
     var payment_id = $this.attr('id');
     status_update = 'Accepted'
 
+    // Fetch API and updates information of the selected payment
     fetch(`/api/payment-update/${payment_id}/`, {
         method: 'POST',
         headers: {
@@ -39,11 +40,14 @@ jQuery('#adminTable').on('click', ".accept", function() {
     .then(location.reload())
 })
 
+// Button: Deny
 jQuery('#adminTable').on('click', ".deny", function() {
     var $this = $(this);
     var payment_id = $this.attr('id');
     status_update = 'Denied'
 
+
+    // Fetch API and updates information of the selected payment
     fetch(`/api/payment-update/${payment_id}/`, {
         method: 'POST',
         headers: {
