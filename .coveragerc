@@ -1,0 +1,7 @@
+[run]
+source=api/,apps/,
+omit=
+    myenv/*
+    */migrations/*
+    */tests/*
+    __init__.py

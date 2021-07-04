@@ -1,10 +1,15 @@
 from django.shortcuts import render
+from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.exceptions import AuthenticationFailed
 from .serializers import UserSerializer
 from .models import User
-import jwt, datetime
+import jwt, datetime, logging
+
+
+# Logging Configuration
+logging.basicConfig(filename='Adv-Payment.log', level=logging.INFO, format='%(asctime)s - %(levelname)s: %(message)s')
 
 
 class RegisterView(APIView):
@@ -13,10 +18,17 @@ class RegisterView(APIView):
         # Serializes the data
         serializer = UserSerializer(data=request.data)
 
-        # Validates the serializer
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-        return Response(serializer.data)
+        # Request validation
+        if serializer.is_valid():
+            serializer.save()
+            logging.info('User was created')
+
+            # Validation HTTP 201 - Created successfully
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+        # Validation HTTP 400 - Bad request
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 class LoginView(APIView):
     def post(self, request):

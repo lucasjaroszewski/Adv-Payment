@@ -12,7 +12,6 @@ class User(AbstractUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
 
-
 class Payment(models.Model):
 
     # User authentication

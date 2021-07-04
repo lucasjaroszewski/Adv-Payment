@@ -27,7 +27,7 @@ var Payment_1 = {
     "email": user_email,
     "cnpj": "12.345.6789/0001-10",
     "company_name": "Cool Company",
-    "price": "1000.00",
+    "price": 1000.00,
     "expiration_date": "2021-07-21",
     "payment_status": "Available",
 }
@@ -37,7 +37,7 @@ var Payment_2 = {
     "email": user_email,
     "cnpj": "12.345.6789/0001-12",
     "company_name": "Excelent Company",
-    "price": "690.90",
+    "price": 690.90,
     "expiration_date": "2020-07-21",
     "payment_status": "Expired",
 }
@@ -47,7 +47,7 @@ var Payment_3 = {
     "email": user_email,
     "cnpj": "12.345.6789/0001-14",
     "company_name": "Great Company",
-    "price": "2578.81",
+    "price": 2578.81,
     "expiration_date": "2022-07-21",
     "payment_status": "Available",
 }

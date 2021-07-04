@@ -13,11 +13,17 @@ logging.basicConfig(filename='Adv-Payment.log', level=logging.INFO, format='%(as
 @api_view(['GET'])
 def apiOverview(request):
     api_urls = {
+        'Payments':'------------------------',
         'Create':'/payment-create/',
         'Read':'/payment-list/',
         'Update':'/payment-update/<str:id>/',
         'Delete':'/payment-delete/<str:id>/',
         'Detail':'/payment-detail/<str:id>/',
+        'Users':'---------------------------',
+        'User':'/user/',
+        'Register':'/register/',
+        'Login':'/login/',
+        'Logout':'/logout/',
     }
     return Response(api_urls)
 
