@@ -33,6 +33,7 @@
 
                                 <!-- Gets User_ID -->
                                 {{ request.user.id|json_script:"user_id" }}
+                                {{ request.user.email|json_script:"user_email" }}
                                     <li>
                                         <a href="{% url 'dashboard' %}" class="nav-link text-secondary my-2">
                                             Dashboard

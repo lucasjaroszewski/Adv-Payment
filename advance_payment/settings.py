@@ -30,15 +30,15 @@ ALLOWED_HOSTS = ['adv-payment-jwt.herokuapp.com', '127.0.0.1', 'localhost']
 
 
 # SMTP Configuration
-#EMAIL_HOST = 'smtp.gmail.com'
-#EMAIL_HOST_USER = 'adv-payment-jwt@gmail.com'
-#EMAIL_HOST_PASSWORD = 'advancepaymentjwt2021'
-#EMAIL_PORT = 587
-#EMAIL_USE_TLS = True
-#DEFAULT_FROM_EMAIL = "Lucas <adv-payment-jwt@gmail.com>"
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'adv.payment.jwt@gmail.com'
+EMAIL_HOST_PASSWORD = 'advancepaymentjwt2021'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = "Lucas <adv.payment.jwt@gmail.com>"
 
-#ADMINS = [('Lucas', EMAIL_HOST_USER)]
-#MANAGERS = ADMINS
+ADMINS = [('Lucas', EMAIL_HOST_USER)]
+MANAGERS = ADMINS
 
 
 # Application definition
@@ -158,6 +158,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'users.User'
 CORS_ORIGIN_ALLOW_ALL = True        # Allows all front-end ports access
 CORS_ALLOW_CREDENTIALS = True       # Allow front-end to get the cookies sent
+
+
+# Celery & Redis Setup
+CELERY_BROKER_URL = 'redis://:pff89bb7cf38c0fad11f761bd7a3e8cbbfb668222df31a61a5d542784b02bf3ff@ec2-23-20-238-97.compute-1.amazonaws.com:25060'
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+
 
 # Crispy Forms settings
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

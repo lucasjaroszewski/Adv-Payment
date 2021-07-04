@@ -16,69 +16,42 @@ function getCookie(name) {
 }
 
 
-// Gets username (email)
+/// Gets user ID and e-mail
 const user_id = JSON.parse(document.getElementById('user_id').textContent);
+const user_email = JSON.parse(document.getElementById('user_email').textContent);
 
 
 // Buttons logic
 jQuery('#adminTable').on('click', ".accept", function() {
-  var $this = $(this);
-  var payment_id = $this.attr('id');
-  $.ajax({
-    type: 'GET',
-    url: `/api/payment-update/${payment_id}`,
-    success: function(payment) {
-      acceptPayment(payment)
-    },
-    error: function() {
-      console.log('Error: Payment ID not found.')
-    }
-  });
-})
-
-function acceptPayment(payment) {
-    payment_id = payment.id
+    var $this = $(this);
+    var payment_id = $this.attr('id');
     status_update = 'Accepted'
 
     fetch(`/api/payment-update/${payment_id}/`, {
         method: 'POST',
-        headers:{
+        headers: {
             'Content-type':'application/json',
             "X-CSRFToken": getCookie("csrftoken"),
         },
-        body:JSON.stringify({ 'payment_status':status_update })
+        body:
+            JSON.stringify({ 'payment_status':status_update, 'email':user_email })
     })
-    .catch(error => console.log('Error: ' + error.message))
     .then(location.reload())
-}
-
-jQuery('#adminTable').on('click', ".deny", function() {
-  var $this = $(this);
-  var payment_id = $this.attr('id');
-  $.ajax({
-    type: 'GET',
-    url: `/api/payment-update/${payment_id}`,
-    success: function(payment) {
-      denyPayment(payment)
-    },
-    error: function() {
-      console.log('Error: Payment ID not found.')
-    }
-  });
 })
 
-function denyPayment(payment) {
-    payment_id = payment.id
+jQuery('#adminTable').on('click', ".deny", function() {
+    var $this = $(this);
+    var payment_id = $this.attr('id');
     status_update = 'Denied'
 
     fetch(`/api/payment-update/${payment_id}/`, {
         method: 'POST',
-        headers:{
+        headers: {
             'Content-type':'application/json',
             "X-CSRFToken": getCookie("csrftoken"),
         },
-        body:JSON.stringify({ 'payment_status':status_update })
+        body:
+            JSON.stringify({ 'payment_status':status_update, 'email':user_email })
     })
-    .catch(error => console.log('Error: ' + error.message))
     .then(location.reload())
-}
+})

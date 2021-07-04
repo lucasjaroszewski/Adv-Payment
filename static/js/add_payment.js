@@ -16,21 +16,25 @@ function getCookie(name) {
 }
 
 
-// Gets username (email)
+// Gets user ID and e-mail
 const user_id = JSON.parse(document.getElementById('user_id').textContent);
+const user_email = JSON.parse(document.getElementById('user_email').textContent);
 
 
 // Objetcts to input into Payment
 var Payment_1 = {
     "user": user_id,
+    "email": user_email,
     "cnpj": "12.345.6789/0001-10",
     "company_name": "Cool Company",
     "price": "1000.00",
     "expiration_date": "2021-07-21",
+    "payment_status": "Available",
 }
 
 var Payment_2 = {
     "user": user_id,
+    "email": user_email,
     "cnpj": "12.345.6789/0001-12",
     "company_name": "Excelent Company",
     "price": "690.90",
@@ -40,10 +44,12 @@ var Payment_2 = {
 
 var Payment_3 = {
     "user": user_id,
+    "email": user_email,
     "cnpj": "12.345.6789/0001-14",
     "company_name": "Great Company",
     "price": "2578.81",
     "expiration_date": "2022-07-21",
+    "payment_status": "Available",
 }
 
 // Buttons logic

@@ -57,7 +57,3 @@ class Payment(models.Model):
 
     def __str__(self):
         return f'User: {self.user} ({self.user.id}) - {self.company_name}'
-
-
-    # Determines if payment has expired and changes status accordingly
-    # CELERY
