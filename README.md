@@ -45,9 +45,32 @@ python manage.py runserver
 
 ## Documentação
 
+### Funcionamento do API
+
+```
+# Quando um cliente se cadastra no aplicativo, ele se torna um fornecedor de produtos
+/api/user-register/
+# Através do login, é gerado um token (JWT) com duração de 60 minutos
+/api/user-token/
+
+# O cliente pode criar e fazer solicitações de pagamentos adiantados pelo dashboard
+# Acesso ao Dashboard: /dashboard/
+/api/payment-create/
+/api/payment-update/<str:id>/
+
+# A empresa pode criar/deletar e aceitar/negar pedidos solicitados pelo fornecedor
+# Acesso ao Admin Dashboard: /dashboard/admin/
+/api/payment-create/
+/api/payment-update/
+/api/payment-delete/
+
+# Em todas as atualizações feitas por ambos, é enviado um e-mail automático ao fornecedor
+# Todos os pagamentos que passarem da data de validade não podem ser mais pagos
+```
+
 ### API
 
-```bash
+```
 # POST /api/user-register/ - Cria um novo usuário
 # POST /api/user-login/ - Faz o login do usuário
 # POST /api/user-logout/ - Faz o logout do usuário
@@ -61,7 +84,7 @@ python manage.py runserver
 
 ### Testes
 
-```bash
+```
 # Para execução dos testes acesse /Adv-Payment/
 # Execute os comaandos do Coverage
 
