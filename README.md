@@ -39,6 +39,9 @@ pip install -r requirements.txt
 python manage.py makemigrations
 python manage.py migrate
 
+# Crie o superuser para ter acesso ao /dashboard/admin/
+python manage.py createsuperuser
+
 # Execute o servidor
 python manage.py runserver
 ```
