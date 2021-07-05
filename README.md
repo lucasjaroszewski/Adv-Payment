@@ -86,7 +86,7 @@ python manage.py runserver
 
 ```
 # Para execução dos testes acesse /Adv-Payment/
-# Execute os comaandos do Coverage
+# Execute os comandos do Coverage
 
 coverage run --omit 'myenv/*' --omit '*/migrations/*' -m unittest
 coverage run manage.py test
